@@ -12,7 +12,7 @@
           <a class="nav-link active" href="/proyectos">Proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/serviciosocial">Servicio Social  <span class="sr-only">(current)</a>
+          <a class="nav-link" href="/serviciosocial">Servicio Social<span class="sr-only">(current)</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Menu opcion 4</a>
