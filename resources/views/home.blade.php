@@ -15,7 +15,7 @@
           <a class="nav-link" href="/serviciosocial">Servicio Social</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="#">Menu opcion 4</a>
+          <a class="nav-link" href="#">Otros</a>
       </li>
   </ul>
 </nav>

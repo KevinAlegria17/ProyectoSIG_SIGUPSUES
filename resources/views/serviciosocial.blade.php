@@ -9,20 +9,20 @@
           <a class="nav-link" href="/alumnos">Alumnos </span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/proyectos">Proyectos</a>
+          <a class="nav-link" href="/proyectos">Proyectos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/serviciosocial">Servicio Social<span class="sr-only">(current)</a>
+          <a class="nav-link active" href="/serviciosocial">Servicio Social<span class="sr-only">(current)</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Menu opcion 4</a>
+            <a class="nav-link" href="#">Otros</a>
           </li>
         </ul>
       </nav>
 
       <div class="col-md-9">
         <div class="card">
-          <div class="card-header">PANEL PRINCIPAL</div>
+          <div class="card-header bg-outline-primary ">SERVICIO SOCIAL</div>
 
           <div class="card-body">
             @if (session('status'))
@@ -40,18 +40,18 @@
                 <div class="col-md-4">
                   <h2>Mayor demanda</h2>
                   <p> Se muestra el tipo de servicio social más demandado </p>
-                  <p><a class="btn btn-secondary" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
                 </div>
                 <div class="col-md-4">
                   <h2>Dinero ahorrado</h2>
                   <p> Verifica todos los servicios sociales realizados en un año específico para mostrar el dinero ahorrado mediante su realizacion</p>
-                  <p><a class="btn btn-secondary" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
                 </div>
                 <div class="col-md-4">
                   <h2>Existencias</h2>
                   <p>Existencias de un determinado servicio social para una escuela en
                   específico</p>
-                  <p><a class="btn btn-secondary" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
                 </div>
 
               </div>
