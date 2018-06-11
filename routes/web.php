@@ -27,3 +27,7 @@ Route::get('/proyectos', 'HomeController@proyectos')->name('proyectos');
 Route::get('/serviciosocial', 'HomeController@serviciosocial')->name('serviciosocial');
 Route::get('/servicioSocialFinalizado', 'AlumnosController@servicioSocialFinalizado')->name('servicioSocialFinalizado');
 });
+
+Route::get('/RepoNoEscogido', 'ProyectosController@reponoesco')->name('RepoNoEscogido');
+Route::get('/RepoAbandonados', 'ProyectosController@repoabandonados')->name('RepoAbandonados');
+
