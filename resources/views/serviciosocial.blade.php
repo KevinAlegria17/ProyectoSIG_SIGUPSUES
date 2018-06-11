@@ -1,24 +1,14 @@
-@extends('layouts.app')
+@extends('adminlte::layouts.app')
 
-@section('content')
+@section('htmlheader_title','HOME')
+
+
+@section('contentheader_title', 'HOME')
+
+@section('main-content')
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
-      <ul class="nav nav-pills flex-column">
-        <li class="nav-item">
-          <a class="nav-link" href="/alumnos">Alumnos </span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/proyectos">Proyectos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link active" href="/serviciosocial">Servicio Social<span class="sr-only">(current)</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Otros</a>
-          </li>
-        </ul>
-      </nav>
+    
 
       <div class="col-md-9">
         <div class="card">
