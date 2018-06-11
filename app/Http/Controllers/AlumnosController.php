@@ -15,4 +15,9 @@ class AlumnosController extends Controller
     {
         return view('Alumnos.servicioSocialFinalizado');
     }
+
+    public function empresasSolicitantes()
+    {
+        return view('Alumnos.empresasSolicitantes');
+    }
 }

@@ -27,7 +27,7 @@
             <!-- Example row of columns -->
             <div class="row">
               <div class="col-md-6">
-                <h2>El futuro es hoy viejo! SS finalizado</h2>
+                <h2>El futuro es hoy viejo! Empresas Solicitantes</h2>
                 <p>Estadísticas de cantidad de alumnos que terminaron su servicio social
                 en un ciclo </p>
                 

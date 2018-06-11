@@ -36,7 +36,7 @@
                 <h2>Empresas solicitantes</h2>
                 <p>Empresas con las que se ha llegado a un acuerdo para mandar alumnos
                 periódicamente.</p>
-                <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
+                <p><a class="btn btn-outline-success" href="empresasSolicitantes" role="button">Obtener &raquo;</a></p>
               </div>
               
             </div>
