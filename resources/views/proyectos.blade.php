@@ -31,24 +31,24 @@
                   <h2>Proyectos no escogidos</h2>
                   <p> Muestra cuáles proyectos tienen más de un año de estar ingresados,
                   y que ningún estudiante los ha escogido </p>
-                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="RepoNoEscogido" role="button">Obtener &raquo;</a></p>
                 </div>
                 <div class="col-md-3">
                   <h2>Proyectos abandonados</h2>
                   <p> Muestra cuales proyectos han sido abandonados por sus
                   integrantes y razón por la cual haya quedado inconcluso.</p>
-                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="RepoAbandonados" role="button">Obtener &raquo;</a></p>
                 </div>
                 <div class="col-md-3">
                   <h2>Cupos disponibles</h2>
                   <p>Muestra todos los proyectos que estén disponibles y los que ya están en
                   proceso, pero aún les falta un integrante del equipo</p>
-                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="cuposDisponibles" role="button">Obtener &raquo;</a></p>
                 </div>
                 <div class="col-md-3">
                   <h2>Cantidad de beneficiarios</h2>
                   <p> Reporte con proyectos que tengan mayor cantidad de beneficiarios</p>
-                  <p><a class="btn btn-outline-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-outline-success" href="cantidadBeneficiarios" role="button">Obtener &raquo;</a></p>
                 </div>
               </div>
 
