@@ -8,9 +8,7 @@
 @section('main-content')
 <div class="container-fluid">
   <div class="row">
-<<<<<<< HEAD
-   
->>>>>>> dc6e4dfc09d0f85fe3bcfbf4d6a13fbbcbc01fc0
+
 
     <div class="col-md-9">
       <div class="card">
@@ -29,7 +27,7 @@
           <div class="container">
             <!-- Example row of columns -->
             <div class="row">
-<<<<<<< HEAD
+
             <div class="form-group">
                 <label>Date:</label>
 
@@ -37,23 +35,28 @@
                   <div class="input-group-addon">
                     <i class="fa fa-calendar"></i>
                   </div>
-                  <input class="form-control pull-right" id="datepicker" type="text">
+                  <!--input class="form-control pull-right" id="datepicker" type="text"-->
+                      <input type="text" class="form-control">
                 </div>
                 <!-- /.input group -->
-=======
-              <div class="col-md-6">
+              <div class="col-md-12">
                 <h2>El futuro es hoy viejo! SS finalizado</h2>
                 <p>Estadísticas de cantidad de alumnos que terminaron su servicio social
                 en un ciclo </p>
                 
->>>>>>> dc6e4dfc09d0f85fe3bcfbf4d6a13fbbcbc01fc0
               </div>
               
             </div>
-            <p align="center"><a class="btn btn-success" href="#" role="button"><i class="fa fa-download"> Obtener Reporte</i></a></p>
-            <p><a class="btn btn-danger" href="/alumnos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
+            <p align="center"><a class="btn btn-success col-md-3 col-md-offset-5" href="#" role="button"><i class="fa fa-download"> Obtener Reporte</i></a></p>
+            <p><a class="btn btn-danger col-md-3 col-md-offset-1" href="/alumnos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
 
           </div>
         </div>
       </div>
+      <script type="text/javascript">
+           $('#sandbox-container input').datepicker({
+        format: "yyyy",
+        endDate: "31/12/2018"
+    });
+      </script>
       @endsection
