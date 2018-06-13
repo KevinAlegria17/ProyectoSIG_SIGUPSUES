@@ -14,6 +14,18 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+     public function rol()
+    {
+      return $this->belongsToMany(rol::class, 'rol_users');
+        // return $this->hasOne('App\rol_user');
+    }
+    
+    public function rol_id()
+    {
+        return $this->belongsTo('App\rol');
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
