@@ -23,7 +23,11 @@ class reporteController extends Controller
     {
       $anio = $request->get('anio');
       $ciclo = $request->get('ciclo');
-      $beneficiarios = DB::table('beneficiario')->select('beneficiario.nombre','beneficiario.apellido')->get();
+      $beneficiarios = DB::table('beneficiario')
+      ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
+      
+      ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso')
+      ->whereYear('fecha_ingreso',$anio)->get();
       $view = \View::make("reportes.beneficiariosPrueba")->with(compact('beneficiarios'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);

@@ -115,6 +115,7 @@ table {
             <tr >
               <th style="text-align: left;">Nombre</th>
               <th style="text-align: left;">Apellido</th>
+              <th style="text-align: left;">Servicio Social</th>
             </tr>
           </thead>
           <tbody>
@@ -122,6 +123,7 @@ table {
            <tr >
             <td>{{$bene->nombre}}</td>
             <td>{{$bene->apellido}}</td>
+            <td>{{$bene->ss_nom}}</td>
           </tr>
           @endforeach
         </tbody>

@@ -36,11 +36,12 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">AÑO</label>
                       </div>
-                      <select class="custom-select col-4" id="anio">
+                      <select class="custom-select col-4" name="anio" id="anio">
                         <option selected>Seleccione...</option>
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
                         <option value="2015">2015</option>
+                        <option value="2018">2018</option>
                         <option value="0">Todos</option>
                       </select>
                     </div>
@@ -49,7 +50,7 @@
                       <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">CICLO</label>
                       </div>
-                      <select class="custom-select col-4" id="ciclo" >
+                      <select class="custom-select col-4" name="ciclo" id="ciclo" >
                         <option selected>Seleccione...</option>
                         <option value="1">Ciclo I</option>
                         <option value="2">Ciclo II</option>
