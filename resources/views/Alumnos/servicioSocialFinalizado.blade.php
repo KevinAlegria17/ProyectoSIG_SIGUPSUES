@@ -28,35 +28,50 @@
             <!-- Example row of columns -->
             <div class="row">
 
-            <div class="form-group">
-                <label>Date:</label>
+            <form  method="POST" target="_blank">
+      {{ csrf_field() }} 
+      <div class="col-xs-10">
+       <div class="panel panel-success">
+        <div class="panel-heading">GENERAR REPORTE </div> 
+        <div class="panel-body">
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
-                  </div>
-                  <!--input class="form-control pull-right" id="datepicker" type="text"-->
-                      <input type="text" class="form-control">
-                </div>
-                <!-- /.input group -->
-              <div class="col-md-12">
-                <h2>El futuro es hoy viejo! SS finalizado</h2>
-                <p>Estadísticas de cantidad de alumnos que terminaron su servicio social
-                en un ciclo </p>
-                
-              </div>
-              
-            </div>
-            <p align="center"><a class="btn btn-success col-md-3 col-md-offset-5" href="#" role="button"><i class="fa fa-download"> Obtener Reporte</i></a></p>
-            <p><a class="btn btn-danger col-md-3 col-md-offset-1" href="/alumnos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
+            Ingrese el año y la escuela en que desea obtener reporte de alumnos que realizaron su Servicio Social <br><br>
+            <label>Año: *</label>
+            <input   type="number" id="anio" name="anio" title="Ingrese un año"   size="40" required>
+            <br><br>
+            <label>Seleccione Escuela: </label>
+            <select class="form-control select2"  style="width: 50%;" name="escuela" id="escuela"> 
+              <option selected value="0">Todas las escuelas</option>
+              @foreach($escuelas as $escuela)
+              <option  value="{{ $escuela->id }}">{{ $escuela->nombre }}</option>
+              @endforeach
+            </select>
+<br><br>
+             
+
+
+<table width="300">
+
+  <tr>
+            <td width="150">  <button formaction="{{ route('reporte') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+            <td width="150">
+          <button formaction="{{ route('reporteDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
+          </td></tr>
+          </table>
+          <br><br>
+
+
+<!-- </div> -->
+</div>
+</div>
+
+        </div><!-- /.box-body -->
+
+
+  </form> 
+            
 
           </div>
         </div>
       </div>
-      <script type="text/javascript">
-           $('#sandbox-container input').datepicker({
-        format: "yyyy",
-        endDate: "31/12/2018"
-    });
-      </script>
       @endsection

@@ -35,4 +35,8 @@ Route::get('/RepoAbandonados', 'ProyectosController@repoabandonados')->name('Rep
 Route::get('/cuposDisponibles', 'ProyectosController@cuposdisponibles')->name('cuposDisponibles');
 Route::get('/cantidadBeneficiarios', 'ProyectosController@cantidadBeneficiarios')->name('cantidadBeneficiarios');
 
+
+/*Reportes para SS finalizado*/
+ Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
+ Route::post('/reportes/descargar', 'ReporteController@reporteDescargar')->name('reporteDescargar');
 });
