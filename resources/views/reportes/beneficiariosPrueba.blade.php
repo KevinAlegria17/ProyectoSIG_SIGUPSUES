@@ -107,7 +107,9 @@ table {
   <div class="col-md-12">
     <div class="box">
       <div class="box-header with-border">
-        <h2> Reporte de Beneficiarios </h2>
+        <h2> Reporte de Empresas</h2>
+        <p>Este reporte contiene las empresas con las que se ha llegado a un acuerdo para mandar alumnos
+periódicamente</p>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table  class="table-1 table table-bordered ">
@@ -115,15 +117,21 @@ table {
             <tr >
               <th style="text-align: left;">Nombre</th>
               <th style="text-align: left;">Apellido</th>
+              <th style="text-align: left;">Correo</th>
+              <th style="text-align: left;">Telefono</th>
               <th style="text-align: left;">Servicio Social</th>
+              <th style="text-align: left;">Monto</th>
             </tr>
-          </thead>
+          </thead> 
           <tbody>
            @foreach($beneficiarios as $bene)
            <tr >
             <td>{{$bene->nombre}}</td>
             <td>{{$bene->apellido}}</td>
+            <td>{{$bene->correo_organizacion}}</td>
+            <td>{{$bene->telefono}}</td>
             <td>{{$bene->ss_nom}}</td>
+            <td>{{$bene->monto}}</td>            
           </tr>
           @endforeach
         </tbody>

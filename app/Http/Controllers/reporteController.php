@@ -22,12 +22,18 @@ class reporteController extends Controller
   public function reporte(Request $request)
     {
       $anio = $request->get('anio');
-      $ciclo = $request->get('ciclo');
-      $beneficiarios = DB::table('beneficiario')
-      ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
+      if($anio==0){
+        $beneficiarios = DB::table('beneficiario')
+        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
+        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')->get();
       
-      ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso')
-      ->whereYear('fecha_ingreso',$anio)->get();
+      }else{
+        $beneficiarios = DB::table('beneficiario')
+        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
+        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')
+        ->whereYear('fecha_ingreso',$anio)->get();
+        
+      }
       $view = \View::make("reportes.beneficiariosPrueba")->with(compact('beneficiarios'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
@@ -37,7 +43,6 @@ class reporteController extends Controller
   public function reporte_Descargar(Request $request)
     {
       $anio = $request->get('anio');
-      $ciclo = $request->get('ciclo');
       $beneficiarios = DB::table('beneficiario')->select('beneficiario.nombre','beneficiario.apellido')->get();
       view()->share(compact('beneficiarios'));
 // Set extra option
