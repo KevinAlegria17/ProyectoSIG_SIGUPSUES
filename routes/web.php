@@ -39,4 +39,7 @@ Route::get('/cantidadBeneficiarios', 'ProyectosController@cantidadBeneficiarios'
 /*Reportes para SS finalizado*/
  Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
  Route::post('/reportes/descargar', 'ReporteController@reporteDescargar')->name('reporteDescargar');
+ Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
+ Route::post('/reportes/descargar', 'ReporteController@reporte_Descargar')->name('reporte_Descargar');
+
 });
