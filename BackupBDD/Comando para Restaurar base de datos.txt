@@ -1,0 +1,1 @@
+mysql --user=root  bd_sigupsues < C:\Users\Arnulfo\Documents\GitHub\ProyectoSIG_SIGUPSUES\BackupBDD\BK_20181406_2316.sql
