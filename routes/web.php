@@ -39,7 +39,16 @@ Route::get('/cantidadBeneficiarios', 'ProyectosController@cantidadBeneficiarios'
 /*Reportes para SS finalizado*/
  Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
  Route::post('/reportes/descargar', 'ReporteController@reporteDescargar')->name('reporteDescargar');
- Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
- Route::post('/reportes/descargar', 'ReporteController@reporte_Descargar')->name('reporte_Descargar');
+ 
+ Route::post('/reportes/emp', 'ReporteController@reporteEmpresas')->name('reporteEmpresas');
+ Route::post('/reportes/emp_descargar', 'ReporteController@reporteEmpresasDescargar')->name('reporteEmpresasDescargar');
+ Route::post('/reportes/no_esc', 'ReporteController@reporteNoEscogidos')->name('reporteNoEscogidos');
+ Route::post('/reportes/no_esc_descargar', 'ReporteController@reporteNoEscogidosDescargar')->name('reporteNoEscogidosDescargar');
+ Route::post('/reportes/aband', 'ReporteController@reporteAbandonados')->name('reporteAbandonados');
+ Route::post('/reportes/aband_descargar', 'ReporteController@reporteAbandonadosDescargar')->name('reporteAbandonadosDescargar');
+ Route::post('/reportes/cant_bene', 'ReporteController@reporteCantidadBeneficiarios')->name('reporteCantidadBeneficiarios');
+ Route::post('/reportes/cant_bene_descargar', 'ReporteController@reporteCantidadBeneficiariosDescargar')->name('reporteCantidadBeneficiariosDescargar');
+ Route::post('/reportes/cupos', 'ReporteController@reporteCupos')->name('reporteCupos');
+ Route::post('/reportes/cupos_descargar', 'ReporteController@reporteCuposDescargar')->name('reporteCuposDescargar');
 
 });

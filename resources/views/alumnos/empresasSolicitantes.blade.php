@@ -43,9 +43,9 @@
                     <br>
                     <table width="300">
                       <tr>
-                        <td width="150">  <button formaction="{{ route('reporte') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150">  <button formaction="{{ route('reporteEmpresas') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
                         <td width="150">
-                          <button formaction="{{ route('reporte_Descargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
+                          <button formaction="{{ route('reporteEmpresasDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
                         </td>
                       </tr>
                     </table>

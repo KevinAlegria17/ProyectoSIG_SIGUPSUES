@@ -1,62 +1,51 @@
 @extends('adminlte::layouts.app')
-
 @section('htmlheader_title','HOME')
-
-
-@section('contentheader_title', 'HOME')
-
+@section('contentheader_title', 'PROYECTOS')
 @section('main-content')
 <div class="container-fluid">
   <div class="row">
-
-    <div class="col-md-9">
+    <div class="col-md-12">
       <div class="card">
-        <div class="card-header">ALUMNOS</div>
-
+        <div class="card-header"></div>
         <div class="card-body">
           @if (session('status'))
           <div class="alert alert-success">
             {{ session('status') }}
           </div>
           @endif
-
-          <h1>{{ Auth::user()->name }}, Vamos por ese reporte!</h1>
-          <br></br>
-
-          <div class="container">
-            <!-- Example row of columns -->
-            <div >
-                <h4>Seleccione el año del que desea conocer los Proyectos No Escogidos</h4>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">AÑO</label>
-                  </div>
-                  <select class="custom-select col-4" id="inputGroupSelect01">
-                    <option selected>Seleccione...</option>
-                    <option value="2017">2017</option>
-                    <option value="2016">2016</option>
-                    <option value="2015">2015</option>
-                    <option value="0">Todos</option>
-                  </select>
-                </div>
-                <h4>Seleccione el ciclo a analizar su reporte</h4>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <label class="input-group-text" for="inputGroupSelect01">CICLO</label>
-                  </div>
-                  <select class="custom-select col-4" id="inputGroupSelect01" >
-                    <option selected>Seleccione...</option>
-                    <option value="1">Ciclo I</option>
-                    <option value="2">Ciclo II</option>
-                    <option value="0">Ambos</option>
-                  </select>
-                </div>
-                
-                <p align="center"><a class="btn btn-success" href="#" role="button"><i class="fa fa-download"> Obtener Reporte</i></a></p>
-                <p><a class="btn btn-danger" href="/proyectos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
-              </div>
-
-          </div>
+          <br>
         </div>
       </div>
-      @endsection
+      <!--Colocar contenido aca-->
+      <form  method="POST" target="_blank">
+              {{ csrf_field() }} 
+              <div class="col-xs-11">
+                <h3>{{ Auth::user()->name }}, Esta a punto de generar un reporte</h3>
+                  <h4>El reporte contendrá los proyectos que tienen mas de un año de estar ingresados en el sistema y que nadie ha escogido</h4>
+                <div class="panel panel-success">
+                  <div class="panel-heading">GENERAR REPORTE </div> 
+                  <div class="panel-body">
+                    <div class="input-group mb-3">
+                    </div>
+                    <br>
+                    <table width="300">
+                      <tr>
+                        <td width="150">  <button formaction="{{ route('reporteNoEscogidos') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150">
+                          <button formaction="{{ route('reporteNoEscogidosDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
+                        </td>
+                      </tr>
+                    </table>
+                    <br><br>
+                    <!-- </div> -->
+                  </div>
+                </div>
+                <p align="center"><a class="btn btn-danger" href="/proyectos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
+              </div><!-- /.box-body -->
+            </form>
+            <!--Contenido termina aca-->
+      </div>
+    </div>
+  </div>
+  
+  @endsection
