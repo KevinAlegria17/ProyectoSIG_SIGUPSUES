@@ -47,4 +47,8 @@ class HomeController extends Controller
     {
         return view('serviciosocial');
     }
+    public function otros()
+    {
+        return view('otros');
+    }
 }

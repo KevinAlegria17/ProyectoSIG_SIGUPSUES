@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/alumnos', 'HomeController@alumnos')->name('alumnos');
 Route::get('/proyectos', 'HomeController@proyectos')->name('proyectos');
 Route::get('/serviciosocial', 'HomeController@serviciosocial')->name('serviciosocial');
+Route::get('/otros', 'HomeController@otros')->name('otros');
 
 Route::get('/servicioSocialFinalizado', 'AlumnosController@servicioSocialFinalizado')->name('servicioSocialFinalizado');
 
@@ -34,6 +35,13 @@ Route::get('/RepoNoEscogido', 'ProyectosController@reponoesco')->name('RepoNoEsc
 Route::get('/RepoAbandonados', 'ProyectosController@repoabandonados')->name('RepoAbandonados');
 Route::get('/cuposDisponibles', 'ProyectosController@cuposdisponibles')->name('cuposDisponibles');
 Route::get('/cantidadBeneficiarios', 'ProyectosController@cantidadBeneficiarios')->name('cantidadBeneficiarios');
+
+
+Route::get('/mayorDemanda', 'ServicioSocialController@mayorDemanda')->name('mayorDemanda');
+Route::get('/dineroAhorrado', 'ServicioSocialController@dineroAhorrado')->name('dineroAhorrado');
+Route::get('/existenciasPorEscuela', 'ServicioSocialController@existenciasPorEscuela')->name('existenciasPorEscuela');
+
+
 
 
 /*Reportes para SS finalizado*/

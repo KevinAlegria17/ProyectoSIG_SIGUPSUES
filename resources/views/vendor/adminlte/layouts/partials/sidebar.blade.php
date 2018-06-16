@@ -37,6 +37,8 @@
             <li><a  href="/alumnos"><i class='fa fa-user'></i> <span>Alumnos</span></a></li>
             <li><a  href="/proyectos"><i class='fa fa-institution'></i> <span>Proyectos</span></a></li>
             <li><a  href="/serviciosocial"><i class='fa fa-line-chart'></i> <span>Servicio Social</span></a></li>
+            <li><a  href="/otros"><i class='fa fa-institution'></i> <span>Otros</span></a></li>
+            
             
         </ul><!-- /.sidebar-menu -->
     </section>

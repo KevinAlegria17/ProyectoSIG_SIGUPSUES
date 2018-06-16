@@ -107,8 +107,8 @@ table {
   <div class="col-md-12">
     <div class="box">
       <div class="box-header with-border">
-        <h2> Reporte de proyectos no escogidos</h2>
-        <p>Este reporte contiene los proyectos que tiene mas de un año en el sistema sin ser escogidos</p>
+        <h2> Reporte de cantidad de beneficiarios</h2>
+        <p>Este reporte contiene los proyectos y la cantidad de beneficiarios</p>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table  class="table-1 table table-bordered ">

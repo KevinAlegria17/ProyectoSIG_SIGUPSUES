@@ -21,7 +21,7 @@
         <div class="panel-heading"><h4>Mayor demanda<h4></div> 
           <div class="panel-body">
             <p> Se muestra el tipo de servicio social más demandado </p>
-                  <p><a class="btn btn-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-success" href="/mayorDemanda" role="button">Obtener &raquo;</a></p>
           </div>
         </div>
         <div class="panel panel-success">
@@ -29,7 +29,7 @@
           </div> 
           <div class="panel-body">
             <p> Verifica todos los servicios sociales realizados en un año específico para mostrar el dinero ahorrado mediante su realizacion</p>
-                  <p><a class="btn btn-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-success" href="/dineroAhorrado" role="button">Obtener &raquo;</a></p>
           </div>
         </div>
         <div class="panel panel-success">
@@ -37,7 +37,7 @@
           <div class="panel-body">
             <p>Existencias de un determinado servicio social para una escuela en
                   específico</p>
-                  <p><a class="btn btn-success" href="#" role="button">Obtener &raquo;</a></p>
+                  <p><a class="btn btn-success" href="/existenciasPorEscuela" role="button">Obtener &raquo;</a></p>
           </div>
         </div>
       </div>
