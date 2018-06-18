@@ -21,7 +21,7 @@
         <div class="panel-heading"><h4>Cantidad de peticiones que llegan a las escuelas<h4></div> 
           <div class="panel-body">
             <p>Muestra las peticiones que llegan a las escuelas de servicios sociales.</p>
-            <p><a class="btn btn-success" href="#" role="button">Obtener &raquo;</a></p>
+            <p><a class="btn btn-success" href="{{ route('peticiones') }}" role="button">Obtener &raquo;</a></p>
           </div>
         </div>
         <div class="panel panel-success">

@@ -1,0 +1,5 @@
+necesitamos tabla de tutores para jalar los datos y ver quien ha dirigido mas proyectos
+necesitamos alumno escuela para sacar el id del alumno del expediente.
+necesitamos tabla  modalidad para el tipo de proyecto
+el reporte de Existencias esta repetido.
+necesito catalogo de escuelas

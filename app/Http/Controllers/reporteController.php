@@ -21,49 +21,14 @@ class reporteController extends Controller
      
 	}
 
-  public function reporteEmpresas(Request $request)
+  public function servicioSocialFinalizado(Request $request)
     {
-      $anio = $request->get('anio');
-      if($anio==0){
-        $beneficiarios = DB::table('beneficiario')
-        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
-        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')->get();
       
-      }else{
-        $beneficiarios = DB::table('beneficiario')
-        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
-        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')
-        ->whereYear('fecha_ingreso',$anio)->get();
-        
-      }
-      $view = \View::make("reportes.beneficiariosPrueba")->with(compact('beneficiarios'))->render();
-      $pdf = \App::make('dompdf.wrapper');
-      $pdf->loadHTML($view);
-      return $pdf->stream('Reporte.pdf');
   }
 
   public function reporteEmpresasDescargar(Request $request)
     {
-      $anio = $request->get('anio');
-      if($anio==0){
-        $beneficiarios = DB::table('beneficiario')
-        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
-        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')->get();
       
-      }else{
-        $beneficiarios = DB::table('beneficiario')
-        ->join('servicio_social', 'beneficiario.id', '=', 'servicio_social.beneficiario_id')
-        ->select('beneficiario.nombre','beneficiario.apellido','servicio_social.nombre as ss_nom','servicio_social.fecha_ingreso','servicio_social.monto','beneficiario.correo_organizacion','beneficiario.telefono')
-        ->whereYear('fecha_ingreso',$anio)->get();
-        
-      }
-      view()->share(compact('beneficiarios'));
-// Set extra option
-             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-            // pass view file
-             $pdf = PDF::loadView('reportes.beneficiariosPrueba');
-            // download pdf
-             return $pdf->download('beneficiarios.pdf');
   }
 
   public function reporteNoEscogidos(Request $request)
@@ -192,5 +157,74 @@ class reporteController extends Controller
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.RepoCuposDisponibles');
              return $pdf->download('CuposDisponibles.pdf');
+  }
+
+
+
+
+  public function dineroAhorrado(Request $request)
+    {
+
+      $anio = $request->get('anio');
+      $dinero = DB::table('servicio_social')
+        ->select(DB::raw(' SUM(monto) monto, year(fecha_ingreso) fecha'))
+        ->whereYear('fecha_ingreso','=',$anio)
+         ->groupBy('fecha_ingreso')
+        ->get();
+
+      view()->share(compact('dinero'));
+
+      $view = \View::make("reportes.dinero")->with(compact('dinero'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      return $pdf->stream('dinero.pdf');
+  }
+
+  public function dineroAhorradoDescargar(Request $request)
+    {
+         $anio = $request->get('anio');
+      $dinero = DB::table('servicio_social')
+        ->select(DB::raw(' SUM(monto) monto,fecha_ingreso'))
+        ->where('year(fecha_ingreso)','=',$anio)
+         ->groupBy('fecha_ingreso')
+        ->get();
+
+      view()->share(compact('dinero'));
+
+             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+             $pdf = PDF::loadView('reportes.dinero');
+             return $pdf->download('dineroAhorrado.pdf');
+  }
+
+public function cantidadPeticiones(Request $request)
+    {
+
+      $cantidad = DB::table('servicio_social')
+        ->select(DB::raw('COUNT(id) as cantidad, escuela_id as escuela'))
+         ->groupBy('escuela_id')
+        ->get();
+
+      view()->share(compact('cantidad'));
+
+      $view = \View::make("reportes.cantidadPeticiones")->with(compact('cantidad'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      return $pdf->stream('cantidad.pdf');
+  }
+
+  public function cantidadPeticionesDescargar(Request $request)
+    {
+         $anio = $request->get('anio');
+      $dinero = DB::table('servicio_social')
+        ->select(DB::raw(' SUM(id) monto,fecha_ingreso'))
+        ->where('year(fecha_ingreso)','=',$anio)
+         ->groupBy('fecha_ingreso')
+        ->get();
+
+      view()->share(compact('dinero'));
+
+             PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
+             $pdf = PDF::loadView('reportes.dinero');
+             return $pdf->download('dineroAhorrado.pdf');
   }
 }

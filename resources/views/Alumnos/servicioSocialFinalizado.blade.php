@@ -39,13 +39,6 @@
             <label>Año: *</label>
             <input   type="number" id="anio" name="anio" title="Ingrese un año"   size="40" required>
             <br><br>
-            <label>Seleccione Escuela: </label>
-            <select class="form-control select2"  style="width: 50%;" name="escuela" id="escuela"> 
-              <option selected value="0">Todas las escuelas</option>
-              @foreach($escuelas as $escuela)
-              <option  value="{{ $escuela->id }}">{{ $escuela->nombre }}</option>
-              @endforeach
-            </select>
 <br><br>
              
 

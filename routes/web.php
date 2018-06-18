@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () { 
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
 //    });
@@ -36,6 +36,7 @@ Route::get('/RepoAbandonados', 'ProyectosController@repoabandonados')->name('Rep
 Route::get('/cuposDisponibles', 'ProyectosController@cuposdisponibles')->name('cuposDisponibles');
 Route::get('/cantidadBeneficiarios', 'ProyectosController@cantidadBeneficiarios')->name('cantidadBeneficiarios');
 
+Route::get('/peticiones', 'OtrosController@peticiones')->name('peticiones');
 
 Route::get('/mayorDemanda', 'ServicioSocialController@mayorDemanda')->name('mayorDemanda');
 Route::get('/dineroAhorrado', 'ServicioSocialController@dineroAhorrado')->name('dineroAhorrado');
@@ -45,7 +46,7 @@ Route::get('/existenciasPorEscuela', 'ServicioSocialController@existenciasPorEsc
 
 
 /*Reportes para SS finalizado*/
- Route::post('/reportes/post', 'ReporteController@reporte')->name('reporte');
+ Route::post('/reportes/post', 'ReporteController@servicioSocialFinalizado')->name('reporte');
  Route::post('/reportes/descargar', 'ReporteController@reporteDescargar')->name('reporteDescargar');
  
  Route::post('/reportes/emp', 'ReporteController@reporteEmpresas')->name('reporteEmpresas');
@@ -58,5 +59,12 @@ Route::get('/existenciasPorEscuela', 'ServicioSocialController@existenciasPorEsc
  Route::post('/reportes/cant_bene_descargar', 'ReporteController@reporteCantidadBeneficiariosDescargar')->name('reporteCantidadBeneficiariosDescargar');
  Route::post('/reportes/cupos', 'ReporteController@reporteCupos')->name('reporteCupos');
  Route::post('/reportes/cupos_descargar', 'ReporteController@reporteCuposDescargar')->name('reporteCuposDescargar');
+
+ Route::post('/reportes/dineroAhorrado', 'ReporteController@dineroAhorrado')->name('dineroAhorrado');
+ Route::post('/reportes/dineroAhorrado_descargar', 'ReporteController@dineroAhorradoDescargar')->name('dineroAhorradoDescargar');
+
+
+ Route::post('/reportes/peticiones', 'ReporteController@cantidadPeticiones')->name('cantidadPeticiones');
+ Route::post('/reportes/peticiones_descargar', 'ReporteController@cantidadPeticiones')->name('cantidadPeticionesDescargar');
 
 });
