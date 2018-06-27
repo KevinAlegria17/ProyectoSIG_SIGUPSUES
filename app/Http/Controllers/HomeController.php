@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use DB;
 
 /**
  * Class HomeController
@@ -33,7 +34,33 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('adminlte::home');
+
+         $noEscogido = DB::table('Bitacora')
+                ->where('id_usuario','=','1')->count();
+
+        $Abandonados = DB::table('Bitacora')
+                ->where('id_usuario','=','2')->count();
+
+        $CantidadBeneficiarios = DB::table('Bitacora')
+                ->where('id_usuario','=','3')->count();
+
+        $Cupos = DB::table('Bitacora')
+                ->where('id_usuario','=','4')->count();
+
+        $dineroAhorrado = DB::table('Bitacora')
+                ->where('id_usuario','=','5')->count();
+
+        $CantidadPeticiones = DB::table('Bitacora')
+                ->where('id_usuario','=','6')->count();
+                
+    
+        return view('adminlte::home')
+        ->with(['noEscogido' => $noEscogido])
+        ->with(['Abandonados' => $Abandonados])
+        ->with(['CantidadBeneficiarios' => $CantidadBeneficiarios])
+        ->with(['Cupos' => $Cupos])
+        ->with(['dineroAhorrado' => $dineroAhorrado])
+        ->with(['CantidadPeticiones' => $CantidadPeticiones]);
     }
      public function alumnos()
     {

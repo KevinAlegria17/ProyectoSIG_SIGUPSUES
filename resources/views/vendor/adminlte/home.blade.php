@@ -31,47 +31,77 @@
   <div class="row">
     
     <div class="info-box-content col-md-4">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-text">Proyectos No Escogidos</span>
+              <span class="info-box-number">{{$noEscogido}}</span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
+                <div class="progress-bar" style="width: {{$noEscogido}}%"></div>
               </div>
               <span class="progress-description">
-                    20% Increase in 30 Days
+                    {{$noEscogido}}% Increase in 30 Days
+                  </span>
+    </div>
+
+
+            <div class="info-box-content col-md-4">
+              <span class="info-box-text">Abandonados</span>
+              <span class="info-box-number">{{$Abandonados}}</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: {{$Abandonados}}%"></div>
+              </div>
+              <span class="progress-description">
+                    {{$Abandonados}}% Increase in 30 Days
                   </span>
             </div>
+
+
             <div class="info-box-content col-md-4">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-text">Cantidad Beneficiarios</span>
+              <span class="info-box-number">{{$CantidadBeneficiarios}}</span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
+                <div class="progress-bar" style="width: {{$CantidadBeneficiarios}}%"></div>
               </div>
               <span class="progress-description">
-                    20% Increase in 30 Days
+                    {{$CantidadBeneficiarios}}% Increase in 30 Days
                   </span>
             </div>
+
+
             <div class="info-box-content col-md-4">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-text">Cupos</span>
+              <span class="info-box-number">{{$Cupos}}</span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
+                <div class="progress-bar" style="width: {{$Cupos}}%"></div>
               </div>
               <span class="progress-description">
-                    20% Increase in 30 Days
+                    {{$Cupos}}% Increase in 30 Days
                   </span>
             </div>
+
             <div class="info-box-content col-md-4">
-              <span class="info-box-text">Mentions</span>
-              <span class="info-box-number">92,050</span>
+              <span class="info-box-text">Cantidad de Peticiones</span>
+              <span class="info-box-number">{{$CantidadPeticiones}}</span>
 
               <div class="progress">
-                <div class="progress-bar" style="width: 20%"></div>
+                <div class="progress-bar" style="width: {{$CantidadPeticiones}}%"></div>
               </div>
               <span class="progress-description">
-                    20% Increase in 30 Days
+                    {{$CantidadPeticiones}}% Increase in 30 Days
+                  </span>
+            </div>
+
+            <div class="info-box-content col-md-4">
+              <span class="info-box-text">dinero Ahorrado</span>
+              <span class="info-box-number">{{$dineroAhorrado}}</span>
+
+              <div class="progress">
+                <div class="progress-bar" style="width: {{$dineroAhorrado}}%"></div>
+              </div>
+              <span class="progress-description">
+                    {{$dineroAhorrado}}% Increase in 30 Days
                   </span>
             </div>
   </div>
