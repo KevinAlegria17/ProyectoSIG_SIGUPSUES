@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use PDF;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 
 class reporteController extends Controller
@@ -44,6 +45,8 @@ class reporteController extends Controller
       $view = \View::make("reportes.NoEscogidos")->with(compact('sss'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+        DB::commit();
       return $pdf->stream('ReporteNoEscogidos.pdf');
   }
 
@@ -60,6 +63,8 @@ class reporteController extends Controller
       view()->share(compact('sss'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.NoEscogidos');
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Descargo Reporte Servicio Social No Escogidos']);
+        DB::commit();
              return $pdf->download('ReporteNoEscogidos.pdf');
   }
 
@@ -74,6 +79,8 @@ class reporteController extends Controller
       $view = \View::make("reportes.Abandonados")->with(compact('sss'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+      DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [2,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Proyectos Abandonados']);
+        DB::commit();
       return $pdf->stream('ReporteAbandonados.pdf');
   }
 
@@ -88,6 +95,8 @@ class reporteController extends Controller
       view()->share(compact('sss'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.Abandonados');
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [2,Auth::user()->name, Auth::user()->email, 'Descargo Reporte de Proyectos Abandonados']);
+        DB::commit();
              return $pdf->download('ReporteAbandonados.pdf');
   }
 
@@ -113,6 +122,8 @@ class reporteController extends Controller
       $view = \View::make("reportes.CantidadBeneficiarios")->with(compact('beneficiarios'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+      DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [3,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Servicio Social con mayor Cantidad de beneficiarios ']);
+        DB::commit();
       return $pdf->stream('CantidadBeneficiarios.pdf');
   }
 
@@ -128,6 +139,9 @@ class reporteController extends Controller
       view()->share(compact('sss'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.Abandonados');
+
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [3,Auth::user()->name, Auth::user()->email, 'Descargo Reporte Servicio Social con mayor Cantidad de beneficiarios']);
+        DB::commit();
              return $pdf->download('ReporteAbandonados.pdf');
   }
 
@@ -142,6 +156,8 @@ class reporteController extends Controller
       $view = \View::make("reportes.RepoCuposDisponibles")->with(compact('sss'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+       DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [4,Auth::user()->name, Auth::user()->email, 'Genero Reporte con Cupos Disponibles por cada Proyecto']);
+        DB::commit();
       return $pdf->stream('CuposDisponibles.pdf');
   }
 
@@ -156,6 +172,9 @@ class reporteController extends Controller
       view()->share(compact('sss'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.RepoCuposDisponibles');
+
+              DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [4,Auth::user()->name, Auth::user()->email, 'Genero Reporte de cupos disponibles en cada proyecto']);
+        DB::commit();
              return $pdf->download('CuposDisponibles.pdf');
   }
 
@@ -177,6 +196,8 @@ class reporteController extends Controller
       $view = \View::make("reportes.dinero")->with(compact('dinero'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+       DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [5,Auth::user()->name, Auth::user()->email, 'Genero Reporte de dinero ahorrado en un año']);
+        DB::commit();
       return $pdf->stream('dinero.pdf');
   }
 
@@ -193,11 +214,15 @@ class reporteController extends Controller
 
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.dinero');
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [5,Auth::user()->name, Auth::user()->email, 'Descargo Reporte de dinero ahorrado en un año']);
+        DB::commit();
              return $pdf->download('dineroAhorrado.pdf');
   }
 
 public function cantidadPeticiones(Request $request)
     {
+      DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [6,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Cantidad de Peticiones de Servicio Social']);
+        //DB::commit();
 
       $cantidad = DB::table('servicio_social')
         ->select(DB::raw('COUNT(id) as cantidad, escuela_id as escuela'))
@@ -209,6 +234,7 @@ public function cantidadPeticiones(Request $request)
       $view = \View::make("reportes.cantidadPeticiones")->with(compact('cantidad'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
+      
       return $pdf->stream('cantidad.pdf');
   }
 
@@ -225,6 +251,8 @@ public function cantidadPeticiones(Request $request)
 
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.dinero');
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [6,Auth::user()->name, Auth::user()->email, 'Descargo Reporte de cantidad de Peticiones en un año']);
+        DB::commit();
              return $pdf->download('dineroAhorrado.pdf');
   }
 }
