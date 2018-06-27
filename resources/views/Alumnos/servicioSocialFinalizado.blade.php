@@ -37,7 +37,8 @@
 
             Ingrese el año y la escuela en que desea obtener reporte de alumnos que realizaron su Servicio Social <br><br>
             <label>Año: *</label>
-            <input   type="number" id="anio" name="anio" title="Ingrese un año"   size="40" required>
+            <input   type="number" id="anio" name="anio" title="Ingrese un año"   size="40" 
+            min="2010" max="2018" maxlength="4" required>
             <br><br>
 <br><br>
              

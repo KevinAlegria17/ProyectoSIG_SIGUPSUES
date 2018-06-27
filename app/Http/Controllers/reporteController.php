@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 class reporteController extends Controller
 {
-    		public function reporteDescargar(Request $request)
-  	{
+  public function reporteDescargar(Request $request)
+  {
   		      // Set extra option
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
             // pass view file
@@ -48,8 +48,7 @@ class reporteController extends Controller
       DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
         DB::commit();
       return $pdf->stream('ReporteNoEscogidos.pdf');
-  }
-
+  }    
   public function reporteNoEscogidosDescargar(Request $request)
     {
       $now = Carbon::now();
