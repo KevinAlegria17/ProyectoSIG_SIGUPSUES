@@ -40,21 +40,20 @@
                 <a href="#"><i class='fa fa-users'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     
-                         @if (Auth::user()->rol->first()->id==1)
+                        
                         <li><a href="RepoNoEscogido">Proyectos no escogidos</a></li>
                         <li><a href="RepoAbandonados">Proyectos Abandonados</a></li>
                         <li><a href="cuposDisponibles">Cupos Disponibles</a></li>
                         <li><a href="cantidadBeneficiarios">Mayor cantidad de beneficiarios</a></li>
                         <li><a href="servicioSocialFinalizado">Servicio Social Finalizado</a></li>
-                        @endif
-                        @if (Auth::user()->rol->first()->id==2)
+                
                         <li><a href="empresasSolicitantes">Empresas Solicitantes</a></li>
                         <li><a href="{{ route('peticiones') }}">Cantidad de Peticiones</a></li>
                         <li><a href="/mayorDemanda">Servicio social mas demandado</a></li>
                         <li><a href="/dineroAhorrado">Dinero Ahorrado</a></li>
                         <li><a href="/existenciasPorEscuela">Servicio Social Existente</a></li>
                         <li><a href="">Nuevo alumno por CSV</a></li>
-                        @endif
+                   
                 </ul>
             </li>
 

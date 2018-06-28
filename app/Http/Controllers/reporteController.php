@@ -80,10 +80,15 @@ class reporteController extends Controller
 
   public function reporteEmpresas(Request $request)
     {
-       $view = \View::make("reportes.empresa")->with(compact('sss'))->render();
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+       $view = \View::make("reportes.empresa")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
-      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogios']);
         DB::commit();
       return $pdf->stream('ReporteEmpresasSolicitantes.pdf');
       
@@ -91,7 +96,13 @@ class reporteController extends Controller
 
   public function reporteEmpresasDescargar(Request $request)
     {
-      $view = \View::make("reportes.empresa")->with(compact('sss'))->render();
+
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+      $view = \View::make("reportes.empresa")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
       DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
