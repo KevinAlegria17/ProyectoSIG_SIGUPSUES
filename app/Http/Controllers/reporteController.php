@@ -1,4 +1,4 @@
-<?php
+c<?php
 
 namespace App\Http\Controllers;
 
@@ -80,12 +80,23 @@ class reporteController extends Controller
 
   public function reporteEmpresas(Request $request)
     {
+       $view = \View::make("reportes.empresa")->with(compact('sss'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+        DB::commit();
+      return $pdf->stream('ReporteEmpresasSolicitantes.pdf');
       
   }
 
   public function reporteEmpresasDescargar(Request $request)
     {
-      
+      $view = \View::make("reportes.empresa")->with(compact('sss'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+        DB::commit();
+      return $pdf->download('ReporteEmpresasSolicitantes.pdf');
   }
 
   public function reporteNoEscogidos(Request $request)
