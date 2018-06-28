@@ -158,9 +158,9 @@ table {
       <img src="../public/img/fia.png" width="100" height="100">
     </div>
     <div style="width: 100%; clear: both; ">
-      <h4 align="center">REPORTE DE DINERO AHORRADO</h4>
+      <h4 align="center">REPORTE DE CUPOS DISPONIBLES</h4>
       <p align="center" >Desde {{$fecha1}} HASTA {{$fecha2}}</p>
-      <p>Este reporte contiene informacion acerca de la cantidad de dinero que se ha ahorrado en un año para las empresas que han solicitado servicios sociales.</p>
+      <p>En este reporte se muestran los proyectos que tiene cupos disponibles, para que cualquier estudiante que cumpla con los requisitos pueda ingresar para llenar esos cupos.</p>
       <table  class="table-1 table table-bordered ">
           <thead>
             <tr >

@@ -140,7 +140,7 @@ table {
     <div style="width: 50%; float: left; ">
     </div>
     <div style="width: 25%; float: left;">
-      <p align="right">Pagina 1/2</p>
+      <p align="right">Pagina 1/1</p>
     </div>
   </div>
   <br>
@@ -158,9 +158,9 @@ table {
       <img src="../public/img/fia.png" width="100" height="100">
     </div>
     <div style="width: 100%; clear: both; ">
-      <h4 align="center">REPORTE DE DINERO AHORRADO</h4>
+      <h4 align="center">REPORTE DE PETICIONES</h4>
       <p align="center" >Desde {{$fecha1}} HASTA {{$fecha2}}</p>
-      <p>Este reporte contiene informacion acerca de la cantidad de dinero que se ha ahorrado en un año para las empresas que han solicitado servicios sociales.</p>
+      <p>Este reporte muestra la cantidad de peticiones que llegan a una escuela con el objetivo de que esta misma otorgue a los estudiantes la oportunidad de realizar servicio social en base a los requerimientos de dicha peticion.</p>
       <table  class="table-1 table table-bordered ">
           <thead>
             <tr >
@@ -185,7 +185,7 @@ table {
     </div>
     <div class="row footer">
       <div style="width: 100%; float: left; ">
-        <p align="right">Pagina 1/2</p>
+        <p align="right">Pagina 1/1</p>
     </div>
     </div>
   </body>

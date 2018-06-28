@@ -140,7 +140,7 @@ table {
     <div style="width: 50%; float: left; ">
     </div>
     <div style="width: 25%; float: left; ">
-      <p align="right">Pagina 1/2</p>
+      <p align="right">Pagina 1/1</p>
     </div>
   </div>
   <br>
@@ -159,7 +159,7 @@ table {
     </div>
     <div style="width: 100%; clear: both;">
       <h4 align="center">REPORTE DE PROYECTOS ABANDONADOS</h4>
-      <p>Este reporte contiene informacion acerca de llos proyectos que en algun momento estuvieron en curso, pero que fueron abandonados por sus integrantes.</p>
+      <p>Este reporte contiene informacion acerca de los proyectos que en algun momento estuvieron en curso, pero que fueron abandonados por sus integrantes, y que hasta la fecha siguen en ese estado.</p>
       Desde {{$fecha1}} HASTA {{$fecha2}}
         <table  class="table-1 table table-bordered ">
           <thead>
@@ -186,7 +186,7 @@ table {
     </div>
     <div class="row footer">
       <div style="width: 100%; float: left; ">
-        <p align="right">Pagina 1/2</p>
+        <p align="right">Pagina 1/1</p>
     </div>
     </div>
   </body>

@@ -140,7 +140,7 @@ table {
     <div style="width: 50%; float: left; ">
     </div>
     <div style="width: 25%; float: left;">
-      <p align="right">Pagina 1/2</p>
+      <p align="right">Pagina 1/1</p>
     </div>
   </div>
   <br>
@@ -185,7 +185,7 @@ table {
     </div>
     <div class="row footer">
       <div style="width: 100%; float: left; ">
-        <p align="right">Pagina 1/2</p>
+        <p align="right">Pagina 1/1</p>
     </div>
     </div>
   </body>
