@@ -37,32 +37,33 @@
                 </div>
         <h4>El reporte contendrá la cantidad de alumnos que han terminado sus servicios sociales y ademas informacion de estos mismos </h4>
        <div class="panel panel-success">
-        <div class="panel-heading">GENERAR REPORTE </div> 
-        <div class="panel-body">
-
-            Ingrese el año y la escuela en que desea obtener reporte de alumnos que realizaron su Servicio Social <br><br>
-            <label>Año: *</label>
-            <input   type="number" id="anio" name="anio" title="Ingrese un año"   size="40" 
-            min="2010" max="2018" maxlength="4" required>
-            <br><br>
-<br><br>
-             
-
-
-<table width="300">
-
-  <tr>
-            <td width="150">  <button formaction="{{ route('reporte') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
-            <td width="150">
-          <button formaction="{{ route('reporteDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
-          </td></tr>
-          </table>
-          <br><br>
-
-
-<!-- </div> -->
-</div>
-</div>
+                  <div class="panel-heading">GENERAR REPORTE </div> 
+                  <div class="panel-body">
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA INICIAL</label>
+                      </div>
+                      <input type="date" name="anio1" id="anio1">
+                    </div>
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA FINAL</label>
+                      </div>
+                      <input type="date" name="anio2" id="anio2">
+                    </div>
+                    <table width="300" style="clear: both;">
+                      <br><br><br>
+                      <tr>
+                        <td width="150"><br><br> 
+                          <button formaction="{{ route('reporte') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150"><br><br>
+                          <button formaction="{{ route('reporteDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
+                        </td>
+                      </tr>
+                    </table>
+                    <br><br>
+                  </div>
+                </div>
 <p align="center"><a class="btn btn-danger" href="/alumnos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
         </div><!-- /.box-body -->
 

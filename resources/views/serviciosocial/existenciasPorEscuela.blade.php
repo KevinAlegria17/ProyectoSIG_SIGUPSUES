@@ -31,20 +31,25 @@
                     <div class="input-group mb-3">
                     </div>
                     <div class="input-group mb-3">
+                      
+                    </div>
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
                       <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Filtrar por escuela</label>
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA INICIAL</label>
                       </div>
-                      <select class="custom-select col-4" name="bene" id="bene">
-                        <option selected value="0">Todas</option>
-                        <option value="1">opcion 1</option>
-                        <option value="2">opcion 2</option>
-                      </select>
+                      <input type="date" name="anio1" id="anio1">
+                    </div>
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA FINAL</label>
+                      </div>
+                      <input type="date" name="anio2" id="anio2">
                     </div>
                     <br>
-                    <table width="300">
+                    <table width="300" style="clear:both;">
                       <tr>
-                        <td width="150">  <button formaction="#" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
-                        <td width="150">
+                        <td width="150"> <br><br> <button formaction="#" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150"><br><br>
                           <button formaction="#" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
                         </td>
                       </tr>

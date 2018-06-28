@@ -13,13 +13,18 @@ class reporteController extends Controller
 {
   public function reporteDescargar(Request $request)
   {
-  	$anio = $request->get('anio');
+  	$fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('servicio_social')
         ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
         ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
         ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
         ->select(DB::raw(' COUNT(carnet) cuenta'))
-        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        ->whereYear('servicio_social.fecha_fin','=',$anio2)
         //->groupBy('fecha_ingreso')
         ->get();
       $sss2 = DB::table('servicio_social')
@@ -27,11 +32,11 @@ class reporteController extends Controller
         ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
         ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
         ->select(DB::raw('carnet'))
-        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        ->whereYear('servicio_social.fecha_fin','=',$anio2)
         //->groupBy('fecha_ingreso')
         ->get();
 	     
-      view()->share(compact('sss','sss2','anio'));
+      view()->share(compact('sss','sss2','fecha1','fecha2','generado'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.ssFin');
              DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Descargo Reporte Servicio Social Finalizado']);
@@ -42,13 +47,18 @@ class reporteController extends Controller
 
   public function servicioSocialFinalizado(Request $request)
     {
-      $anio = $request->get('anio');
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('servicio_social')
         ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
         ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
         ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
         ->select(DB::raw(' COUNT(carnet) cuenta'))
-        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        ->whereYear('servicio_social.fecha_fin','=',$anio2)
         //->groupBy('fecha_ingreso')
         ->get();
       $sss2 = DB::table('servicio_social')
@@ -56,11 +66,11 @@ class reporteController extends Controller
         ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
         ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
         ->select(DB::raw('carnet'))
-        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        ->whereYear('servicio_social.fecha_fin','=',$anio2)
         //->groupBy('fecha_ingreso')
         ->get();
 
-      $view = \View::make("reportes.ssFin")->with(compact('sss','sss2','anio'))->render();
+      $view = \View::make("reportes.ssFin")->with(compact('sss','sss2','fecha1','fecha2','generado','anio2'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
       DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Genero Reporte Empresas Solicitantes']);
@@ -80,6 +90,12 @@ class reporteController extends Controller
 
   public function reporteNoEscogidos(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $now = Carbon::now();
       $year = $now->subYear();
       $sss = DB::table('servicio_social')
@@ -88,7 +104,7 @@ class reporteController extends Controller
       ->where('estado_id','=','1')
       ->get();
       
-      $view = \View::make("reportes.NoEscogidos")->with(compact('sss'))->render();
+      $view = \View::make("reportes.NoEscogidos")->with(compact('sss','fecha1','fecha2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
       DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
@@ -97,6 +113,12 @@ class reporteController extends Controller
   }    
   public function reporteNoEscogidosDescargar(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $now = Carbon::now();
       $year = $now->subYear();
       $sss = DB::table('servicio_social')
@@ -105,7 +127,7 @@ class reporteController extends Controller
       ->where('estado_id','=','1')
       ->get();
 
-      view()->share(compact('sss'));
+      view()->share(compact('sss','fecha1','fecha2','generado'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.NoEscogidos');
              DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Descargo Reporte Servicio Social No Escogidos']);
@@ -115,13 +137,19 @@ class reporteController extends Controller
 
   public function reporteAbandonados(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('servicio_social')
       ->select('servicio_social.nombre','servicio_social.fecha_ingreso','servicio_social.monto')
       //->whereDate('fecha_ingreso', '<', $year)
       ->where('estado_id','=','3')
       ->get();
       
-      $view = \View::make("reportes.Abandonados")->with(compact('sss'))->render();
+      $view = \View::make("reportes.Abandonados")->with(compact('sss','fecha1','fecha2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
       DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [2,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Proyectos Abandonados']);
@@ -131,13 +159,19 @@ class reporteController extends Controller
 
   public function reporteAbandonadosDescargar(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('servicio_social')
       ->select('servicio_social.nombre','servicio_social.fecha_ingreso','servicio_social.monto')
       //->whereDate('fecha_ingreso', '<', $year)
       ->where('estado_id','=','3')
       ->get();
 
-      view()->share(compact('sss'));
+      view()->share(compact('sss','fecha1','fecha2','generado'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.Abandonados');
              DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [2,Auth::user()->name, Auth::user()->email, 'Descargo Reporte de Proyectos Abandonados']);
@@ -147,6 +181,12 @@ class reporteController extends Controller
 
   public function reporteCantidadBeneficiarios(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $bene = $request->get('bene');
       if($bene==0){
         $beneficiarios = DB::table('servicio_social')
@@ -164,7 +204,7 @@ class reporteController extends Controller
       ->get();
       }
 
-      $view = \View::make("reportes.CantidadBeneficiarios")->with(compact('beneficiarios'))->render();
+      $view = \View::make("reportes.CantidadBeneficiarios")->with(compact('beneficiarios','fecha1','fecha2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
       DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [3,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Servicio Social con mayor Cantidad de beneficiarios ']);
@@ -174,6 +214,12 @@ class reporteController extends Controller
 
   public function reporteCantidadBeneficiariosDescargar(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $bene = $request->get('bene');
       $sss = DB::table('servicio_social')
       ->select('servicio_social.nombre','servicio_social.fecha_ingreso','servicio_social.monto')
@@ -181,7 +227,7 @@ class reporteController extends Controller
       ->where('estado_id','=','3')
       ->get();
 
-      view()->share(compact('sss'));
+      view()->share(compact('sss','fecha1','fecha2','generado'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.Abandonados');
 
@@ -192,13 +238,19 @@ class reporteController extends Controller
 
   public function reporteCupos(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('expediente_servicio_socials')
         ->join('servicio_social', 'servicio_social.id', '=', 'expediente_servicio_socials.servicio_social_id')
         ->select(DB::raw('nombre,servicio_social_id,numero_estudiantes as cupos_totales, count(servicio_social_id) as actuales, (numero_estudiantes - count(servicio_social_id)) as disponibles'))
         ->groupBy('servicio_social_id', 'nombre','cupos_totales')
         ->get();
 
-      $view = \View::make("reportes.RepoCuposDisponibles")->with(compact('sss'))->render();
+      $view = \View::make("reportes.RepoCuposDisponibles")->with(compact('sss','fecha1','fecha2','generado'))->render();
       $pdf = \App::make('dompdf.wrapper');
       $pdf->loadHTML($view);
        DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [4,Auth::user()->name, Auth::user()->email, 'Genero Reporte con Cupos Disponibles por cada Proyecto']);
@@ -208,13 +260,19 @@ class reporteController extends Controller
 
   public function reporteCuposDescargar(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $sss = DB::table('expediente_servicio_socials')
         ->join('servicio_social', 'servicio_social.id', '=', 'expediente_servicio_socials.servicio_social_id')
         ->select(DB::raw('nombre,servicio_social_id,numero_estudiantes as cupos_totales, count(servicio_social_id) as actuales, (numero_estudiantes - count(servicio_social_id)) as disponibles'))
         ->groupBy('servicio_social_id', 'nombre','cupos_totales')
         ->get();
 
-      view()->share(compact('sss'));
+      view()->share(compact('sss','fecha1','fecha2','generado'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.RepoCuposDisponibles');
 
@@ -228,15 +286,20 @@ class reporteController extends Controller
 
   public function dineroAhorrado(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
 
       $anio = $request->get('anio');
       $dinero = DB::table('servicio_social')
         ->select(DB::raw(' SUM(monto) monto, year(fecha_ingreso) fecha'))
-        ->whereYear('fecha_ingreso','=',$anio)
+        ->whereYear('fecha_ingreso','=',$anio2)
          ->groupBy('fecha_ingreso')
         ->get();
 
-      view()->share(compact('dinero'));
+      view()->share(compact('dinero','fecha1','fecha2','generado'));
 
       $view = \View::make("reportes.dinero")->with(compact('dinero'))->render();
       $pdf = \App::make('dompdf.wrapper');
@@ -248,14 +311,19 @@ class reporteController extends Controller
 
   public function dineroAhorradoDescargar(Request $request)
     {
-         $anio = $request->get('anio');
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       $dinero = DB::table('servicio_social')
         ->select(DB::raw(' SUM(monto) monto,fecha_ingreso'))
-        ->where('year(fecha_ingreso)','=',$anio)
+        ->where('fecha_ingreso','=',$anio2)
          ->groupBy('fecha_ingreso')
         ->get();
 
-      view()->share(compact('dinero'));
+      view()->share(compact('dinero','fecha1','fecha2','generado'));
 
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.dinero');
@@ -266,6 +334,12 @@ class reporteController extends Controller
 
 public function cantidadPeticiones(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
       DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [6,Auth::user()->name, Auth::user()->email, 'Genero Reporte de Cantidad de Peticiones de Servicio Social']);
         //DB::commit();
 
@@ -274,7 +348,7 @@ public function cantidadPeticiones(Request $request)
          ->groupBy('escuela_id')
         ->get();
 
-      view()->share(compact('cantidad'));
+      view()->share(compact('cantidad','fecha1','fecha2','generado'));
 
       $view = \View::make("reportes.cantidadPeticiones")->with(compact('cantidad'))->render();
       $pdf = \App::make('dompdf.wrapper');
@@ -285,6 +359,12 @@ public function cantidadPeticiones(Request $request)
 
   public function cantidadPeticionesDescargar(Request $request)
     {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+
          $anio = $request->get('anio');
       $dinero = DB::table('servicio_social')
         ->select(DB::raw(' SUM(id) monto,fecha_ingreso'))
@@ -292,7 +372,7 @@ public function cantidadPeticiones(Request $request)
          ->groupBy('fecha_ingreso')
         ->get();
 
-      view()->share(compact('dinero'));
+      view()->share(compact('dinero','fecha1','fecha2','generado'));
 
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
              $pdf = PDF::loadView('reportes.dinero');

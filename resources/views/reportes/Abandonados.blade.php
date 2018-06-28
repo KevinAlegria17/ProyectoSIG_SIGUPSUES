@@ -1,8 +1,3 @@
-
-<html lang="en">
-      <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-            <title>Proyectos Abandonados</title>
 <style>
 
 .col-md-12 {
@@ -104,58 +99,68 @@ table {
   background-color: transparent ;
 }
 
+.header { 
+  position: fixed; top: -20px; left: 0px; right: 0px;  height: 50px; }
+.footer { 
+  position: fixed; top: 950px; left: 0px; right: 0px;  height: 50px; }
 
-
-.header { position: fixed; top: -60px; left: 0px; right: 0px; background-color: rgba(202, 43, 36, 1.0); height: 50px; }
 
 .cuerpo{
-  margin-top: 50px;
-}
+    position: fixed; left: 0px; right: 0px;  height: 50px; margin-top: 50px;}
 
-table {
-   width: 100%;
-   border: 1px solid #000;
-}
-th, td {
-   width: 25%;
-   text-align: left;
-   vertical-align: top;
-   border: 1px solid #000;
-   border-collapse: collapse;
-   padding: 0.3em;
-   caption-side: bottom;
-}
-caption {
-   padding: 0.3em;
-   color: #fff;
-    background: #000;
-}
-th {
-   background: #eee;
-}
+    table {
+     width: 100%;
+     border: 1px solid #000;
+   }
+   th, td {
+     width: 25%;
+     text-align: left;
+     vertical-align: top;
+     border: 1px solid #000;
+     border-collapse: collapse;
+     padding: 0.3em;
+     caption-side: bottom;
+   }
+   caption {
+     padding: 0.3em;
+     color: #fff;
+     background: #000;
+   }
+   th {
+     background: #eee;
+   }
 
 
-</style>
-<body>
+ </style>
+ <body>
   <div class="row header">
-   <!--img class ="col-md-3" style="max-width: 100px!important;" src="C:\Users\Arnulfo\Documents\GitHub\ProyectoSIG_SIGUPSUES\public\img\Logo_UES.jpg" /-->
-
-
-     <div style="text-align:center;font-style:oblique; " class="col-md-9">
-                        <h4>Universidad de El Salvador</h4>
-                        <h4>Facultad de Ingenieria y Arquitectura</h4>
-                        <h4>Subunidad de proyeccion Social</h4>
-                        <br>
-      </div>   
+    <div style="width: 25%; float: left; ">
+      <p align="left">Generado:{{$generado}}</p>
+    </div>
+    <div style="width: 50%; float: left; ">
+    </div>
+    <div style="width: 25%; float: left; ">
+      <p align="right">Pagina 1/2</p>
+    </div>
   </div>
+  <br>
+  <br>
   <div class="row cuerpo">
-  <div class="col-md-12">
-    <div class="box">
-      <div class="box-header with-border">
-        <h2> Reporte de proyectos Abandonados</h2>
-        <p>Este reporte contiene los proyectos que tiene mas de un año en el sistema sin ser escogidos. Generado el 28/06/2018</p>
-      </div><!-- /.box-header -->
-      <div class="box-body">
+    <div align="center" style="width: 20%; float: left; ">
+      <img src="../public/img/logoues2.png" width="100" height="125">
+    </div>
+    <div style="width: 60%; float: left;">
+      <h3 align="center">UNIVERSIDAD DE EL SALVADOR
+        <br>FACULTAD DE INGENIERIA Y ARQUITECTURA
+        <br>SUBUNIDAD DE PROYECCION SOCIAL</h3>
+    </div>
+    <div align="center" style="width: 20%; float: left;">
+      <img src="../public/img/fia.png" width="100" height="100">
+    </div>
+    <div style="width: 100%; clear: both;">
+      <h4 align="center">REPORTE DE PROYECTOS ABANDONADOS</h4>
+      <p>Este reporte contiene informacion acerca de llos proyectos que en algun momento estuvieron en curso, pero que fueron abandonados por sus integrantes.</p>
+      Desde {{$fecha1}} HASTA {{$fecha2}}
         <table  class="table-1 table table-bordered ">
           <thead>
             <tr >
@@ -177,13 +182,14 @@ th {
         <tfoot>
         </tfoot>
       </table>
-    </div><!-- /.box-body -->
-    <div class="box-footer clearfix">
     </div>
-  </div><!-- /.box -->
-</div>
-</div>
-</body>
-</html>
+    </div>
+    <div class="row footer">
+      <div style="width: 100%; float: left; ">
+        <p align="right">Pagina 1/2</p>
+    </div>
+    </div>
+  </body>
+  </html>
 
 

@@ -28,13 +28,22 @@
                 <div class="panel panel-success">
                   <div class="panel-heading">GENERAR REPORTE </div> 
                   <div class="panel-body">
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA INICIAL</label>
+                      </div>
+                      <input type="date" name="anio1" id="anio1">
                     </div>
-                    <br>
-                    <table width="300">
+                    <div class="input-group mb-3" style="width: 30%; float: left;">
+                      <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">FECHA FINAL</label>
+                      </div>
+                      <input type="date" name="anio2" id="anio2">
+                    </div>
+                    <table width="300" style="clear: both;">
                       <tr>
-                        <td width="150">  <button formaction="{{ route('reporteAbandonados') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
-                        <td width="150">
+                        <td width="150"> <br><br> <button formaction="{{ route('reporteAbandonados') }}" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150"><br><br>
                           <button formaction="{{ route('reporteAbandonadosDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
                         </td>
                       </tr>

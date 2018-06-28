@@ -54,7 +54,6 @@
                         <li><a href="/dineroAhorrado">Dinero Ahorrado</a></li>
                         <li><a href="/existenciasPorEscuela">Servicio Social Existente</a></li>
                         <li><a href="">Nuevo alumno por CSV</a></li>
-                        <li><a href="">Nuevo alumno por CSV</a></li>
                         @endif
                 </ul>
             </li>
