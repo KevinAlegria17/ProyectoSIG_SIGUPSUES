@@ -159,8 +159,9 @@ table {
     </div>
     <div style="width: 100%; clear: both;">
       <h4 align="center">REPORTE DE PROYECTOS ABANDONADOS</h4>
+      <p align="center" >Desde {{$fecha1}} HASTA {{$fecha2}}</p>
       <p>Este reporte contiene informacion acerca de los proyectos que en algun momento estuvieron en curso, pero que fueron abandonados por sus integrantes, y que hasta la fecha siguen en ese estado.</p>
-      Desde {{$fecha1}} HASTA {{$fecha2}}
+      
         <table  class="table-1 table table-bordered ">
           <thead>
             <tr >
