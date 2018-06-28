@@ -107,8 +107,8 @@ table {
   <div class="col-md-12">
     <div class="box">
       <div class="box-header with-border">
-        <h2> Reporte de cantidad de servicio social terminado en un año</h2>
-        <p>Este reporte contiene la cantidad de servicio social que se termino en un año</p>
+        <h2> Reporte de cantidad de alumnos que han completado sus servicios sociales en el año {{$anio}}</h2>
+        <p>Este reporte contiene la cantidad de alumnos que terminaron su servicio social en el año {{$anio}} y tambien los datos de estos alumnos</p>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table  class="table-1 table table-bordered ">
@@ -121,15 +121,31 @@ table {
           <tbody>
            @foreach($sss as $ss)
            <tr >
-            <td>{{$ss->nombre}}</td>
-            <td align="center">{{$ssfin->ssfin}}</td>
-           
-          </tr>
+            <td>{{$ss->cuenta}}</td>
           @endforeach
+          </tr>
         </tbody>
         <tfoot>
         </tfoot>
       </table>
+      <table  class="table-1 table table-bordered ">
+          <thead>
+            <tr >
+              <th style="text-align: left;">Alumnos</th>
+              
+            </tr>
+          </thead> 
+          <tbody>
+          @foreach($sss2 as $ss2)
+           <tr >
+            <td>{{$ss2->carnet}}</td>
+          </tr>
+          @endforeach
+          </tbody>
+        <tfoot>
+        </tfoot>
+      </table>
+
     </div><!-- /.box-body -->
     <div class="box-footer clearfix">
     </div>
@@ -137,5 +153,3 @@ table {
 </div>
 </body>
 </html>
-
-

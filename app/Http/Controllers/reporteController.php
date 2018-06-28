@@ -13,16 +13,62 @@ class reporteController extends Controller
 {
   public function reporteDescargar(Request $request)
   {
-  		      // Set extra option
+  	$anio = $request->get('anio');
+      $sss = DB::table('servicio_social')
+        ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
+        ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
+        ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
+        ->select(DB::raw(' COUNT(carnet) cuenta'))
+        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        //->groupBy('fecha_ingreso')
+        ->get();
+      $sss2 = DB::table('servicio_social')
+        ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
+        ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
+        ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
+        ->select(DB::raw('carnet'))
+        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        //->groupBy('fecha_ingreso')
+        ->get();
+	     
+      view()->share(compact('sss','sss2','anio'));
              PDF::setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);
-            // pass view file
-             $pdf = PDF::loadView('reportes.AlumnosAnio');
-            // download pdf
-             return $pdf->download('alumnos.pdf');
+             $pdf = PDF::loadView('reportes.ssFin');
+             DB::insert('insert into Bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Descargo Reporte Servicio Social Finalizado']);
+        DB::commit();
+             return $pdf->download('ReporteServicioSocialFinalizado.pdf');
      
 	}
 
   public function servicioSocialFinalizado(Request $request)
+    {
+      $anio = $request->get('anio');
+      $sss = DB::table('servicio_social')
+        ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
+        ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
+        ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
+        ->select(DB::raw(' COUNT(carnet) cuenta'))
+        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        //->groupBy('fecha_ingreso')
+        ->get();
+      $sss2 = DB::table('servicio_social')
+        ->join('expediente_servicio_socials','servicio_social.id','=','expediente_servicio_socials.servicio_social_id')
+        ->join('expedientes','expediente_servicio_socials.expediente_alumno_id','=','expedientes.id')
+        ->join('alumno_escuelas','expedientes.alumno_escuela_id','=','alumno_escuelas.id')
+        ->select(DB::raw('carnet'))
+        ->whereYear('servicio_social.fecha_fin','=',$anio)
+        //->groupBy('fecha_ingreso')
+        ->get();
+
+      $view = \View::make("reportes.ssFin")->with(compact('sss','sss2','anio'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [1,Auth::user()->name, Auth::user()->email, 'Genero Reporte Empresas Solicitantes']);
+        DB::commit();
+      return $pdf->stream('ReporteEmpresasSolicitantes.pdf');
+  }
+
+  public function reporteEmpresas(Request $request)
     {
       
   }

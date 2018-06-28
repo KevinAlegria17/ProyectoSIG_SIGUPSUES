@@ -21,16 +21,21 @@
           </div>
           @endif
 
-          <h1>{{ Auth::user()->name }}, Bienvenido al panel de Alumnos!</h1>
+          <h3>{{ Auth::user()->name }}, Se mantiene en el panel de Alumnos!</h3>
           <br></br>
 
-          <div class="container">
+          <div class="container" >
             <!-- Example row of columns -->
             <div class="row">
 
             <form  method="POST" target="_blank">
       {{ csrf_field() }} 
       <div class="col-xs-10">
+        <div class="alert alert-warning alert-dismissable" class="col-xs-5">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>¡{{Auth::user()->name}}, Cuidado!</strong> Usted esta a punto de generar un reporte.
+                </div>
+        <h4>El reporte contendrá la cantidad de alumnos que han terminado sus servicios sociales y ademas informacion de estos mismos </h4>
        <div class="panel panel-success">
         <div class="panel-heading">GENERAR REPORTE </div> 
         <div class="panel-body">
@@ -58,7 +63,7 @@
 <!-- </div> -->
 </div>
 </div>
-
+<p align="center"><a class="btn btn-danger" href="/alumnos" role="button"><i class="fa fa-backward"> Cancelar y regresar</i></a></p>
         </div><!-- /.box-body -->
 
 

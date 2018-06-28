@@ -20,7 +20,10 @@
       <form  method="POST" target="_blank">
               {{ csrf_field() }} 
               <div class="col-xs-11">
-                <h3>{{ Auth::user()->name }}, Esta a punto de generar un reporte</h3>
+                <div class="alert alert-warning alert-dismissable" class="col-xs-5">
+                  <button type="button" class="close" data-dismiss="alert">&times;</button>
+                  <strong>¡{{Auth::user()->name}}, Cuidado!</strong> Usted esta a punto de generar un reporte.
+                </div>
                   <h4>El reporte contendrá los proyectos que disponen de cupos disponibles</h4>
                 <div class="panel panel-success">
                   <div class="panel-heading">GENERAR REPORTE </div> 
