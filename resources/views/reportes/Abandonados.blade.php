@@ -178,6 +178,97 @@ table {
                         
           </tr>
           @endforeach
+
+          <tr >
+            <td>Medicion de casa de la cultura Suchitoto</td>
+            <td>12/04/2016</td>
+            <td>200</td>
+                        
+          </tr>
+
+          <tr >
+            <td>Diseño de pagina web tienda pajaro Flor</td>
+            <td>17/04/2016</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
+
+          <tr >
+            <td>{{$ss->nombre}}</td>
+            <td>{{$ss->fecha_ingreso}}</td>
+            <td>{{$ss->monto}}</td>
+                        
+          </tr>
         </tbody>
         <tfoot>
         </tfoot>
