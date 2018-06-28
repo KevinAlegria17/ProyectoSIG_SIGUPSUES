@@ -31,13 +31,38 @@
 
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
+            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
+
+
             
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
-            <li><a  href="/alumnos"><i class='fa fa-user'></i> <span>Alumnos</span></a></li>
+            <li class="treeview">
+                <a href="#"><i class='fa fa-users'></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    
+                         @if (Auth::user()->rol->first()->id==1)
+                        <li><a href="RepoNoEscogido">Proyectos no escogidos</a></li>
+                        <li><a href="RepoAbandonados">Proyectos Abandonados</a></li>
+                        <li><a href="cuposDisponibles">Cupos Disponibles</a></li>
+                        <li><a href="cantidadBeneficiarios">Mayor cantidad de beneficiarios</a></li>
+                        <li><a href="servicioSocialFinalizado">Servicio Social Finalizado</a></li>
+                        @endif
+                        @if (Auth::user()->rol->first()->id==2)
+                        <li><a href="empresasSolicitantes">Empresas Solicitantes</a></li>
+                        <li><a href="{{ route('peticiones') }}">Cantidad de Peticiones</a></li>
+                        <li><a href="/mayorDemanda">Servicio social mas demandado</a></li>
+                        <li><a href="/dineroAhorrado">Dinero Ahorrado</a></li>
+                        <li><a href="/existenciasPorEscuela">Servicio Social Existente</a></li>
+                        <li><a href="">Nuevo alumno por CSV</a></li>
+                        <li><a href="">Nuevo alumno por CSV</a></li>
+                        @endif
+                </ul>
+            </li>
+
+            <!--li><a  href="/alumnos"><i class='fa fa-user'></i> <span>Alumnos</span></a></li>
             <li><a  href="/proyectos"><i class='fa fa-institution'></i> <span>Proyectos</span></a></li>
             <li><a  href="/serviciosocial"><i class='fa fa-line-chart'></i> <span>Servicio Social</span></a></li>
-            <li><a  href="/otros"><i class='fa fa-institution'></i> <span>Otros</span></a></li>
+            <li><a  href="/otros"><i class='fa fa-institution'></i> <span>Otros</span></a></li-->
             
             
         </ul><!-- /.sidebar-menu -->

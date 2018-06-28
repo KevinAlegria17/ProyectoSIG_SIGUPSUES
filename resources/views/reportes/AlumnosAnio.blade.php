@@ -97,18 +97,54 @@ table {
 
 .bg-red {
     background-color: transparent ;
+.header { position: fixed; top: -60px; left: 0px; right: 0px; background-color: rgba(202, 43, 36, 1.0); height: 50px; }
+
+.cuerpo{
+  margin-top: 50px;
 }
 
-
+table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #000;
+}
+th {
+   background: #eee;
+}
 
 
 </style>
 <body>
+  <div class="row header">
+   
+     <div style="text-align:center" class="col-md-9">
+                        <h4>Universidad de El Salvador</h4>
+                        <h4>Facultad de Ingenieria y Arquitectura</h4>
+                        <h4>Subunidad de proyeccion Social</h4>
+                        <br>
+      </div>   
+  </div>
+  <div class="row cuerpo">
 <div class="col-md-12">
               <div class="box">
                 <div class="box-header with-border">
                 <h2> Reporte de Alumnos </h2>
-                <h4>Alumnos que finalizaron su Servicio Social en el año: <u> {{$r}} </u></h4> 
+                <h4>Alumnos que finalizaron su Servicio Social en el año: <u> {{$r}} </u><br>
+                  Generado el 28/06/2018
+                </h4> 
                  
                  
                 </div><!-- /.box-header -->
@@ -155,7 +191,7 @@ table {
               
             </div>
 
-  
+  </div>
 </body>
 </html>
 

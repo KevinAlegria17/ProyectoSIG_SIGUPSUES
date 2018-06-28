@@ -88,7 +88,7 @@
                 <div class="progress-bar" style="width: {{$CantidadPeticiones}}%"></div>
               </div>
               <span class="progress-description">
-                    {{$CantidadPeticiones}}% Increase in 30 Days
+                    {{$CantidadPeticiones}}% Incrementado en los ultimos 30 Dias
                   </span>
                 </a>
             </div>

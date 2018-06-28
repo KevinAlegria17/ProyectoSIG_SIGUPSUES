@@ -100,15 +100,52 @@ table {
 }
 
 
+.header { position: fixed; top: -60px; left: 0px; right: 0px; background-color: rgba(202, 43, 36, 1.0); height: 50px; }
+
+.cuerpo{
+  margin-top: 50px;
+}
+
+table {
+   width: 100%;
+   border: 1px solid #000;
+}
+th, td {
+   width: 25%;
+   text-align: left;
+   vertical-align: top;
+   border: 1px solid #000;
+   border-collapse: collapse;
+   padding: 0.3em;
+   caption-side: bottom;
+}
+caption {
+   padding: 0.3em;
+   color: #fff;
+    background: #000;
+}
+th {
+   background: #eee;
+}
 
 
 </style>
 <body>
+  <div class="row header">
+    
+     <div style="text-align:center" class="col-md-9">
+                        <h4>Universidad de El Salvador</h4>
+                        <h4>Facultad de Ingenieria y Arquitectura</h4>
+                        <h4>Subunidad de proyeccion Social</h4>
+                        <br>
+      </div>   
+  </div>
+  <div class="row cuerpo">
   <div class="col-md-12">
     <div class="box">
       <div class="box-header with-border">
         <h2> Reporte de cantidad de beneficiarios</h2>
-        <p>Este reporte contiene los proyectos y la cantidad de beneficiarios</p>
+        <p>Este reporte contiene los proyectos y la cantidad de beneficiarios.<br>Generado el 28/06/2018</p>
       </div><!-- /.box-header -->
       <div class="box-body">
         <table  class="table-1 table table-bordered ">
@@ -137,6 +174,7 @@ table {
     <div class="box-footer clearfix">
     </div>
   </div><!-- /.box -->
+</div>
 </div>
 </body>
 </html>
