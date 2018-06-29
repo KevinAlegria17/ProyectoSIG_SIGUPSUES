@@ -62,9 +62,12 @@ Route::get('/existenciasPorEscuela', 'ServicioSocialController@existenciasPorEsc
 
  Route::post('/reportes/dineroAhorrado', 'ReporteController@dineroAhorrado')->name('dineroAhorrado');
  Route::post('/reportes/dineroAhorrado_descargar', 'ReporteController@dineroAhorradoDescargar')->name('dineroAhorradoDescargar');
+
  
  Route::post('/reportes/mayorDemanda', 'ReporteController@mayorDemanda')->name('mayorDemanda');
   Route::post('/reportes/mayorDemandaDescargar', 'ReporteController@mayorDemandaDescargar')->name('mayorDemandaDescargar');
+ Route::post('/repoexistenciasPorEscuela', 'ReporteController@reporteExistencias')->name('existenciaEscuela');
+Route::post('/repoexistenciasPorEscuelaDescargar', 'ReporteController@reporteExistenciasDescargar')->name('existenciaEscuelaDescargar');
 
  Route::post('/reportes/peticiones', 'ReporteController@cantidadPeticiones')->name('cantidadPeticiones');
  Route::post('/reportes/peticiones_descargar', 'ReporteController@cantidadPeticiones')->name('cantidadPeticionesDescargar');

@@ -11,6 +11,39 @@ use Illuminate\Support\Facades\Auth;
 
 class reporteController extends Controller
 {
+  public function reporteExistencias(Request $request)
+    {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+       $view = \View::make("reportes.existenciaEscuela")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogios']);
+        DB::commit();
+      return $pdf->stream('ReporteExistencias.pdf');
+      
+  }
+
+  public function reporteExistenciasDescargar(Request $request)
+    {
+
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+      $view = \View::make("reportes.existenciaEscuela")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [7,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+        DB::commit();
+      return $pdf->download('ReporteExistencias.pdf');
+  }
+
+  
   public function reporteDescargar(Request $request)
   {
   	$fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
@@ -434,4 +467,8 @@ public function cantidadPeticiones(Request $request)
         DB::commit();
              return $pdf->download('dineroAhorrado.pdf');
   }
+
+  
+
+
 }

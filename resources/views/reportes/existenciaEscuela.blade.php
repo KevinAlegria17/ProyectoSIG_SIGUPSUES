@@ -158,78 +158,53 @@ table {
       <img src="../public/img/fia.png" width="100" height="100">
     </div>
     <div style="width: 100%; clear: both;">
-      <h4 align="center">REPORTE DE EMPRESAS</h4>
+      <h4 align="center">REPORTE DE EXISTENCIA POR ESCUELA</h4>
       <p align="center" >Desde {{$fecha1}} HASTA {{$fecha2}}</p>
-      <p>Este reporte contiene informacion acerca de las empresas con las que se tiene un acuerdo para mandar alumnos periodicamente</p>
-      
+      <p>Este reporte contiene informacion sobre las escuelas y la cantidad de servicios sociales que hay disponibles para cada una de estas.</p>
         <table  class="table-1 table table-bordered ">
           <thead>
+            
             <tr >
-              <th style="text-align: left;">Nombre de la Empresa</th>
-              <th style="text-align: left;">Contacto</th>
-              <th style="text-align: left;">Telefono</th>
+              <th style="text-align: left;">Escuela</th>
+              <th style="text-align: left;">Cantidad de proyecto disponible</th>
             </tr>
           </thead> 
           <tbody>
-           
-
           <tr >
-            <td>MOP</td>
-            <td>Juan Miguel Ramirez Rojas</td>
-            <td>22577777</td>
-                        
+            <td>Arquitectura</td>
+            <td>10</td>
           </tr>
-
           <tr >
-            <td>MINSAL</td>
-            <td>Joel Amilcar Tobar</td>
-            <td>22477345</td>
-                        
+            <td>Alimentos</td>
+            <td>13</td>
           </tr>
-
-          
-
           <tr >
-            <td>ANDA</td>
-            <td>Silvia Eunice Ramirez</td>
-            <td>75643298</td>
-                        
+            <td>Civil</td>
+            <td>6</td>
           </tr>
-
-          
-
           <tr >
-            <td>Telnet</td>
-            <td>Carlos Ernesto Miranda Hernandez</td>
-            <td>75498760</td>
-                        
+            <td>Electrica</td>
+            <td>4</td>
           </tr>
-
-          
-
           <tr >
-            <td>Ministerio de Hacienda</td>
-            <td>Andrea Maria Leiva Gonzales</td>
-            <td>22673397</td>
-                        
+            <td>Industrial</td>
+            <td>15</td>
           </tr>
-
-          
-
           <tr >
-            <td>Ministerio de Educacion</td>
-            <td>Jose Luis Rosa</td>
-            <td>22364589</td>
-                        
+            <td>Mecanica</td>
+            <td>6</td>
           </tr>
-
-          
-
           <tr >
-            <td>Alcaldia Municipal de Suchitoto</td>
-            <td>Marvin Jose Morataya Lopez</td>
-            <td>78542201</td>
-                        
+            <td>Quimica</td>
+            <td>4</td>
+          </tr>
+          <tr >
+            <td>Sistemas informaticos</td>
+            <td>24</td>
+          </tr>
+          <tr >
+            <td><strong>TOTAL</strong></td>
+            <td><strong>82</strong></td>
           </tr>
         </tbody>
         <tfoot>
