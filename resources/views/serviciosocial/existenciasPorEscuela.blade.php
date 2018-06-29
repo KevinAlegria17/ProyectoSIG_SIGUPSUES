@@ -48,9 +48,9 @@
                     <br>
                     <table width="300" style="clear:both;">
                       <tr>
-                        <td width="150"> <br><br> <button formaction="#" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
+                        <td width="150"> <br><br> <button formaction="existenciaEscuela" type="submit" class="btn btn-block btn-primary btn-xs"  style='width:100px; height:40px' target="_blank">Ver Reporte</button> </td>
                         <td width="150"><br><br>
-                          <button formaction="#" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
+                          <button formaction="{{ route('existenciaEscuelaDescargar') }}" type="submit" class="btn btn-block btn-success btn-xs" id="download" name="download" target="_blank" style='width:100px; height:40px'>Descargar</button> 
                         </td>
                       </tr>
                     </table>
