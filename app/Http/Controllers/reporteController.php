@@ -110,6 +110,38 @@ class reporteController extends Controller
       return $pdf->download('ReporteEmpresasSolicitantes.pdf');
   }
 
+   public function mayorDemanda(Request $request)
+    {
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+       $view = \View::make("reportes.mayorDemanda")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [8,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogios']);
+        DB::commit();
+      return $pdf->stream('ReporteMayorDemanda.pdf');
+      
+  }
+
+  public function mayorDemandaDescargar(Request $request)
+    {
+
+      $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
+      $fecha2 = Carbon::parse($request->anio2)->format('d/m/Y');
+      $anio1 = Carbon::parse($request->anio1)->year;
+      $anio2 = Carbon::parse($request->anio2)->year;
+      $generado = Carbon::now()->format('d/m/Y');
+      $view = \View::make("reportes.mayordemanda")->with(compact('fecha1','fecha2','anio1','anio2','generado'))->render();
+      $pdf = \App::make('dompdf.wrapper');
+      $pdf->loadHTML($view);
+      DB::insert('insert into bitacora (id_usuario,usuario,email,accion) values (?,?, ?,?)', [8,Auth::user()->name, Auth::user()->email, 'Genero Reporte Servicio Social No Escogidos']);
+        DB::commit();
+      return $pdf->download('ReporteMayorDemanda.pdf');
+  }
+
   public function reporteNoEscogidos(Request $request)
     {
       $fecha1 = Carbon::parse($request->anio1)->format('d/m/Y');
